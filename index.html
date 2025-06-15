@@ -4,108 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mines AI Hack</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
-    body {
-      background: #0a0f1a;
-      color: #d0e6ff;
-      font-family: sans-serif;
-      text-align: center;
-      padding: 20px;
-      user-select: none;
-    }
-    h1 {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 20px;
-      color: #3db2ff;
-      text-shadow: 0 0 8px #3db2ff;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(5, 60px);
-      gap: 10px;
-      justify-content: center;
-      margin: 60px auto 20px auto;
-    }
-    .cell {
-      width: 60px;
-      height: 60px;
-      background-color: #248ea9;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: white;
-      box-shadow:
-        0 0 5px #1c74d6,
-        inset 0 0 10px #1c74d6;
-      opacity: 0;
-      transform: scale(0.8);
-      transition: 
-        opacity 0.3s ease, 
-        transform 0.3s ease,
-        background-color 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-    .cell.appear {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .cell.safe {
-      background-color: #2d80ff;
-      box-shadow:
-        0 0 10px #3db2ff,
-        0 0 20px #3db2ff,
-        inset 0 0 15px #3db2ff;
-      color: #e0f5ff;
-      text-shadow: 0 0 8px #3db2ff;
-    }
-    .controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .button-small {
-      background-color: #1c2a48;
-      color: #d0e6ff;
-      font-size: 20px;
-      border: none;
-      border-radius: 10px;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.2s ease;
-    }
-    .button-small:hover {
-      background-color: #3db2ff;
-      color: #0a0f1a;
-    }
-    .value-display {
-      font-size: 24px;
-      width: 40px;
-      user-select: none;
-    }
-    button#get-signal {
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-size: 16px;
-      background: #2d80ff;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #3db2ff;
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-    }
-    button#get-signal:hover {
-      box-shadow: 0 0 20px #66b3ff;
-    }
+    /* ...всё как у тебя, не меняем... */
   </style>
 </head>
 <body>
@@ -119,6 +20,8 @@
   <button id="get-signal">GET SIGNAL</button>
 
   <script>
+    Telegram.WebApp.ready(); // ← ОБЯЗАТЕЛЬНО ДЛЯ РАБОТЫ В БОТЕ
+
     const grid = document.getElementById('grid');
     const getSignalBtn = document.getElementById('get-signal');
     const decreaseBtn = document.getElementById('decrease');
